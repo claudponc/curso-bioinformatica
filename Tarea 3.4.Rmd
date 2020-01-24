@@ -1,0 +1,25 @@
+---
+title: "Tarea 3.4"
+author: "Claudio Ponce"
+date: "24-01-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### Script para Tarea 3.4
+
+# Cargar el archivo reads.txt a un nuevo archivo
+Readsseq <- read.delim(file= "../data/reads.txt", header=TRUE)
+
+# Cambiar la paleta de colores predeterminada
+palette(c("cyan","magenta","yellow"))
+
+# Realizar un barplot de los reads por muestra agregando títulos a los ejes
+barplot(Readsseq$nreads,
+        col=Readsseq$Library, xlab="Sample", ylab="Reads") 
+
+# Agregar leyenda de librerías a la figura
+legend(x= "topleft", legend=levels(Readsseq$Library), fill=palette()[1:3])
+
